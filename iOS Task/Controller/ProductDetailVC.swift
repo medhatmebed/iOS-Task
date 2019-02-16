@@ -9,7 +9,7 @@
 import UIKit
 
 class ProductDetailVC: UIViewController {
-
+    
     @IBOutlet weak var productDescriptionTxtView: UITextView!
     
     

@@ -9,7 +9,7 @@
 import UIKit
 
 class ProductsListVC: UIViewController {
-
+    
     @IBOutlet weak var productsListTblView: UITableView!
     
     lazy var productsDataReceived = [ProductData]()
@@ -42,6 +42,7 @@ class ProductsListVC: UIViewController {
         let task = URLSession.shared.welcomeTask(with: url) { welcome, response, error in
             if error != nil {
                 print(error ?? "")
+                ToastView.shared.long(self.view, txt_msg: "Network error")
             }
             if let welcome = welcome?.data {
                 print(welcome[0])
@@ -66,8 +67,8 @@ class ProductsListVC: UIViewController {
     }
     
     
-
-
+    
+    
 }
 
 extension ProductsListVC: UITableViewDelegate, UITableViewDataSource {
@@ -80,24 +81,27 @@ extension ProductsListVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-  
-            let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductCell
-            cell.nameLbl.text = productsDataReceived[indexPath.row].name
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductCell
+        cell.nameLbl.text = productsDataReceived[indexPath.row].name
         cell.priceLbl.text = String(format: "$%.2f", productsDataReceived[indexPath.row].price!)
-            
-            guard let url = URL(string: (productsDataReceived[indexPath.row].image?.link)!) else {  return cell }
-            
-            ImageService.getImage(withURL: url) { image, url in
-                guard let _post = self.productsDataReceived[indexPath.row].image else { return }
-                if _post.link == url.absoluteString {
-                    cell.productImageView.image = image
-                } else {
-                    print("Not the right image")
-                }
+        
+        guard let url = URL(string: (productsDataReceived[indexPath.row].image?.link)!) else {  return cell }
+        
+        ImageService.getImage(withURL: url) { image, url in
+            guard let _post = self.productsDataReceived[indexPath.row].image else { return }
+            if _post.link == url.absoluteString {
+                cell.activitySpinner.stopAnimating()
+                cell.activitySpinner.hidesWhenStopped = true
+                cell.productImageView.image = image
+            } else {
+                print("Not the right image")
             }
-            cell.selectionStyle = .none
-            return cell
-
+        }
+        cell.selectionStyle = .none
+        
+        return cell
+        
         
     }
 }
