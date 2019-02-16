@@ -23,9 +23,11 @@ class ProductsListVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        if !Reachability.Connection(){
+            ToastView.shared.long(self.view, txt_msg: "Network error")
+        }
         self.productsListTblView.rowHeight = UITableView.automaticDimension
         self.productsListTblView.estimatedRowHeight = 400
-        
     }
     
     //MARK : -  Private Methods
@@ -42,7 +44,6 @@ class ProductsListVC: UIViewController {
         let task = URLSession.shared.welcomeTask(with: url) { welcome, response, error in
             if error != nil {
                 print(error ?? "")
-                ToastView.shared.long(self.view, txt_msg: "Network error")
             }
             if let welcome = welcome?.data {
                 print(welcome[0])

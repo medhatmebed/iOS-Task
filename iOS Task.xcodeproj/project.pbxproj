@@ -18,6 +18,7 @@
 		8B18D4EC221881760070510E /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4EB221881760070510E /* ImageService.swift */; };
 		8B18D4EE221881C80070510E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4ED221881C80070510E /* ToastView.swift */; };
 		8B18D4F02218821D0070510E /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4EF2218821D0070510E /* ProductCell.swift */; };
+		8B750DF622189CAD008DBFFB /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B750DF522189CAD008DBFFB /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8B18D4EB221881760070510E /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		8B18D4ED221881C80070510E /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		8B18D4EF2218821D0070510E /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		8B750DF522189CAD008DBFFB /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			children = (
 				8B18D4CE221876640070510E /* AppDelegate.swift */,
 				8B18D4D8221876650070510E /* Assets.xcassets */,
+				8B750DF522189CAD008DBFFB /* Reachability.swift */,
 			);
 			path = AppGlobals;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				8B18D4D1221876640070510E /* ProductsListVC.swift in Sources */,
 				8B18D4E82218786C0070510E /* ProductDetailVC.swift in Sources */,
 				8B18D4CF221876640070510E /* AppDelegate.swift in Sources */,
+				8B750DF622189CAD008DBFFB /* Reachability.swift in Sources */,
 				8B18D4F02218821D0070510E /* ProductCell.swift in Sources */,
 				8B18D4D7221876640070510E /* iOS_Task.xcdatamodeld in Sources */,
 				8B18D4EC221881760070510E /* ImageService.swift in Sources */,
