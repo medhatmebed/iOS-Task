@@ -14,6 +14,10 @@
 		8B18D4D9221876650070510E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B18D4D8221876650070510E /* Assets.xcassets */; };
 		8B18D4DC221876650070510E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B18D4DA221876650070510E /* LaunchScreen.storyboard */; };
 		8B18D4E82218786C0070510E /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4E72218786C0070510E /* ProductDetailVC.swift */; };
+		8B18D4EA221880FD0070510E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4E9221880FD0070510E /* Model.swift */; };
+		8B18D4EC221881760070510E /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4EB221881760070510E /* ImageService.swift */; };
+		8B18D4EE221881C80070510E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4ED221881C80070510E /* ToastView.swift */; };
+		8B18D4F02218821D0070510E /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4EF2218821D0070510E /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		8B18D4DB221876650070510E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B18D4DD221876650070510E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B18D4E72218786C0070510E /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
+		8B18D4E9221880FD0070510E /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		8B18D4EB221881760070510E /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		8B18D4ED221881C80070510E /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		8B18D4EF2218821D0070510E /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,7 @@
 		8B18D4E32218779C0070510E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8B18D4E9221880FD0070510E /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -80,6 +89,9 @@
 			children = (
 				8B18D4D2221876640070510E /* Main.storyboard */,
 				8B18D4DA221876650070510E /* LaunchScreen.storyboard */,
+				8B18D4EB221881760070510E /* ImageService.swift */,
+				8B18D4ED221881C80070510E /* ToastView.swift */,
+				8B18D4EF2218821D0070510E /* ProductCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,10 +185,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B18D4EA221880FD0070510E /* Model.swift in Sources */,
+				8B18D4EE221881C80070510E /* ToastView.swift in Sources */,
 				8B18D4D1221876640070510E /* ProductsListVC.swift in Sources */,
 				8B18D4E82218786C0070510E /* ProductDetailVC.swift in Sources */,
 				8B18D4CF221876640070510E /* AppDelegate.swift in Sources */,
+				8B18D4F02218821D0070510E /* ProductCell.swift in Sources */,
 				8B18D4D7221876640070510E /* iOS_Task.xcdatamodeld in Sources */,
+				8B18D4EC221881760070510E /* ImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
