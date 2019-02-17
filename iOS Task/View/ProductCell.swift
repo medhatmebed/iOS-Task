@@ -32,5 +32,21 @@ class ProductCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+     func setProductCell(product : Product) {
+        self.nameLbl.text = product.name
+        self.priceLbl.text = String(format: "$%.2f", product.price)
+        guard let url = URL(string: (product.imageUrl)!) else {  return  }
+        
+        ImageService.getImage(withURL: url) { image, url in
+            guard let _post = product.imageUrl else { return }
+            if _post == url.absoluteString {
+                self.activitySpinner.stopAnimating()
+                self.activitySpinner.hidesWhenStopped = true
+                self.productImageView.image = image
+            } else {
+                print("Not the right image")
+            }
+        }
+    }
     
 }
