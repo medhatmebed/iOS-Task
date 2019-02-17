@@ -32,6 +32,7 @@ class ProductCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
      func setProductCell(product : Product) {
         self.nameLbl.text = product.name
         self.priceLbl.text = String(format: "$%.2f", product.price)
