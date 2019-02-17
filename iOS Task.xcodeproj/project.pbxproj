@@ -14,11 +14,13 @@
 		8B18D4D9221876650070510E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B18D4D8221876650070510E /* Assets.xcassets */; };
 		8B18D4DC221876650070510E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B18D4DA221876650070510E /* LaunchScreen.storyboard */; };
 		8B18D4E82218786C0070510E /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4E72218786C0070510E /* ProductDetailVC.swift */; };
-		8B18D4EA221880FD0070510E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4E9221880FD0070510E /* Model.swift */; };
 		8B18D4EC221881760070510E /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4EB221881760070510E /* ImageService.swift */; };
 		8B18D4EE221881C80070510E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4ED221881C80070510E /* ToastView.swift */; };
 		8B18D4F02218821D0070510E /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B18D4EF2218821D0070510E /* ProductCell.swift */; };
-		8B750DF622189CAD008DBFFB /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B750DF522189CAD008DBFFB /* Reachability.swift */; };
+		8B3B526A2218F1FA0039C981 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B52692218F1FA0039C981 /* CoreDataStack.swift */; };
+		8B3B526C2218FF8E0039C981 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B526B2218FF8E0039C981 /* APIService.swift */; };
+		8B3B526F221913A60039C981 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B526D221913A60039C981 /* Product+CoreDataClass.swift */; };
+		8B3B5270221913A60039C981 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3B526E221913A60039C981 /* Product+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,11 +33,13 @@
 		8B18D4DB221876650070510E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B18D4DD221876650070510E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B18D4E72218786C0070510E /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
-		8B18D4E9221880FD0070510E /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		8B18D4EB221881760070510E /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		8B18D4ED221881C80070510E /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		8B18D4EF2218821D0070510E /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
-		8B750DF522189CAD008DBFFB /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		8B3B52692218F1FA0039C981 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		8B3B526B2218FF8E0039C981 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		8B3B526D221913A60039C981 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8B3B526E221913A60039C981 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,12 +72,12 @@
 		8B18D4CD221876640070510E /* iOS Task */ = {
 			isa = PBXGroup;
 			children = (
+				8B18D4DD221876650070510E /* Info.plist */,
 				8B18D4E6221877F70070510E /* AppGlobals */,
+				8B3B5271221918890039C981 /* Networking */,
 				8B18D4E32218779C0070510E /* Model */,
 				8B18D4E4221877A50070510E /* View */,
 				8B18D4E5221877B40070510E /* Controller */,
-				8B18D4DD221876650070510E /* Info.plist */,
-				8B18D4D5221876640070510E /* iOS_Task.xcdatamodeld */,
 			);
 			path = "iOS Task";
 			sourceTree = "<group>";
@@ -81,7 +85,7 @@
 		8B18D4E32218779C0070510E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8B18D4E9221880FD0070510E /* Model.swift */,
+				8B3B52682218F1BE0039C981 /* CoreData */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -112,9 +116,27 @@
 			children = (
 				8B18D4CE221876640070510E /* AppDelegate.swift */,
 				8B18D4D8221876650070510E /* Assets.xcassets */,
-				8B750DF522189CAD008DBFFB /* Reachability.swift */,
 			);
 			path = AppGlobals;
+			sourceTree = "<group>";
+		};
+		8B3B52682218F1BE0039C981 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8B18D4D5221876640070510E /* iOS_Task.xcdatamodeld */,
+				8B3B526D221913A60039C981 /* Product+CoreDataClass.swift */,
+				8B3B526E221913A60039C981 /* Product+CoreDataProperties.swift */,
+				8B3B52692218F1FA0039C981 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		8B3B5271221918890039C981 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8B3B526B2218FF8E0039C981 /* APIService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,12 +210,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B18D4EA221880FD0070510E /* Model.swift in Sources */,
 				8B18D4EE221881C80070510E /* ToastView.swift in Sources */,
 				8B18D4D1221876640070510E /* ProductsListVC.swift in Sources */,
+				8B3B526A2218F1FA0039C981 /* CoreDataStack.swift in Sources */,
 				8B18D4E82218786C0070510E /* ProductDetailVC.swift in Sources */,
 				8B18D4CF221876640070510E /* AppDelegate.swift in Sources */,
-				8B750DF622189CAD008DBFFB /* Reachability.swift in Sources */,
+				8B3B526F221913A60039C981 /* Product+CoreDataClass.swift in Sources */,
+				8B3B526C2218FF8E0039C981 /* APIService.swift in Sources */,
+				8B3B5270221913A60039C981 /* Product+CoreDataProperties.swift in Sources */,
 				8B18D4F02218821D0070510E /* ProductCell.swift in Sources */,
 				8B18D4D7221876640070510E /* iOS_Task.xcdatamodeld in Sources */,
 				8B18D4EC221881760070510E /* ImageService.swift in Sources */,
