@@ -20,11 +20,7 @@ class ProductCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.productNameLbl.text = "Name"
-        self.productPriceLbl.text = "Price"
-        self.productImageView.image = #imageLiteral(resourceName: "iOSTask_Image_PlaceHolder")
-        self.activitySpinner.style = .whiteLarge
-        self.activitySpinner.startAnimating()
+        initializeCell()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,7 +29,21 @@ class ProductCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-     func setProductCell(product : Product) {
+    /**
+     this function initialize cell with its default data
+     */
+    private func initializeCell(){
+        self.productNameLbl.text = "Name"
+        self.productPriceLbl.text = "Price"
+        self.productImageView.image = #imageLiteral(resourceName: "iOSTask_Image_PlaceHolder")
+        self.activitySpinner.style = .whiteLarge
+        self.activitySpinner.startAnimating()
+    }
+    
+    /**
+     this function feeding cell with data : Product
+     */
+    func setProductCell(product : Product) {
         self.nameLbl.text = product.name
         self.priceLbl.text = String(format: "$%.2f", product.price)
         guard let url = URL(string: (product.imageUrl)!) else {  return  }

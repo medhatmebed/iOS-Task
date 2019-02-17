@@ -22,6 +22,11 @@ open class ToastView: UILabel {
         return Static.instance
     }
     
+    /**
+     This function will create the toast view that would display if internet connection offline and  don't forget singleton instance "shared" for using this class ToastView
+     
+     */
+    
     func setup(_ view: UIView,txt_msg:String)
     {
         let white = UIColor ( red: 1/255, green: 0/255, blue:0/255, alpha: 0.0 )
@@ -50,6 +55,10 @@ open class ToastView: UILabel {
         view.addSubview(overlayView)
     }
     
+    /**
+     This function will display the toast for just 3 seconds and it takes parameter UIView and text message that would display in toast view
+     */
+    
     open func short(_ view: UIView,txt_msg:String) {
         self.setup(view,txt_msg: txt_msg)
         //Animation
@@ -71,6 +80,9 @@ open class ToastView: UILabel {
         }
     }
     
+    /**
+     This function will display the toast for just 6 seconds and it takes parameter UIView and text message that would display in toast view
+     */
     open func long(_ view: UIView,txt_msg:String) {
         self.setup(view,txt_msg: txt_msg)
         //Animation

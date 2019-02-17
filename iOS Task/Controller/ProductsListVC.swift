@@ -26,10 +26,10 @@ class ProductsListVC: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         setNavigationController()
-        updateTableContent()
+        fetchingData()
         
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         self.productsListTblView.rowHeight = UITableView.automaticDimension
         self.productsListTblView.estimatedRowHeight = 400
@@ -44,7 +44,10 @@ class ProductsListVC: UIViewController {
         title = "Products"
     }
     
-    private func updateTableContent() {
+    /**
+     This func is really important because it fetching data from coreData and call APIService to fetch data from api if ther is an error it displays toast view with error message and for handling the response data it calls func saveInCoreDataWith but before that it clears the old data by using func clearData()
+     */
+    private func fetchingData() {
         do {
             try self.fetchedhResultController.performFetch()
             print("COUNT FETCHED FIRST: \(String(describing: self.fetchedhResultController.sections?[0].numberOfObjects))")
@@ -67,8 +70,11 @@ class ProductsListVC: UIViewController {
     }
     
     //MARK : - CoreData Methods
+    
+    /**
+     This func creates entity and parsing the response data from api to core data entity called Product
+     */
     private func createProductEntityFrom(dictionary: [String: AnyObject]) -> NSManagedObject? {
-        
         let context = CoreDataStack.sharedInstance.persistentContainer.viewContext
         if let productEntity = NSEntityDescription.insertNewObject(forEntityName: "Product", into: context) as? Product {
             productEntity.id = dictionary["id"] as? Int16 ?? 0
@@ -82,6 +88,9 @@ class ProductsListVC: UIViewController {
         return nil
     }
     
+    /**
+     This func manipulate the returned data from createProductEntity and save this data into core data
+     */
     private func saveInCoreDataWith(array: [[String: AnyObject]]) {
         _ = array.map{self.createProductEntityFrom(dictionary: $0)}
         do {
@@ -91,6 +100,9 @@ class ProductsListVC: UIViewController {
         }
     }
     
+    /**
+     This func clear all data found in core data to make it fresh when use
+     */
     private func clearData() {
         do {
             let context = CoreDataStack.sharedInstance.persistentContainer.viewContext
@@ -106,6 +118,9 @@ class ProductsListVC: UIViewController {
     }
     
     //MARK : - PrepareForSegue Method
+    /**
+     This func passes the product description to display it in ProductDetailVC
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ProductDetailVC
             , let indexPath = self.productsListTblView.indexPathForSelectedRow {
@@ -121,6 +136,9 @@ class ProductsListVC: UIViewController {
 
 extension ProductsListVC: UITableViewDelegate, UITableViewDataSource {
     
+    /**
+     This func returns number of row in productsListTblView by calculating elements in fetchedhResultController
+     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if let count = fetchedhResultController.sections?.first?.numberOfObjects {
@@ -130,6 +148,9 @@ extension ProductsListVC: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    /**
+     This func returns the ProductCell and call cell.setProductCell to display data from Product
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductCell
@@ -138,10 +159,8 @@ extension ProductsListVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.selectionStyle = .none
-        
         return cell
-        
-        
+ 
     }
 }
 
@@ -149,6 +168,9 @@ extension ProductsListVC: UITableViewDelegate, UITableViewDataSource {
 
 extension ProductsListVC: NSFetchedResultsControllerDelegate {
     
+    /**
+     This func is the delegate method of NSFetchedResultsControllerDelegate and it update table view
+     */
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
         switch type {
